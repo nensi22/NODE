@@ -1,0 +1,85 @@
+<html>
+
+<head>
+    <!-- <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Form</title>
+
+    <style>
+        body {
+            background-color: darksalmon;
+        }
+
+        .head {
+            border: 5px solid black;
+            font-size: 20px;
+            text-align: center;
+            width: 450px;
+            height: 500px;
+            padding: 20px 20px;
+            margin: 150px 150px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h3 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="head">
+        <table border="2">
+                <h1>Facebook</h1>
+                <h3>Create a new account</h3>
+                <form>
+                    <tr>
+                        <td>
+                            <label for="fname"></label>
+                            <input type="text" name="fname" id="fname" placeholder="First name">
+
+                            <label for="lname"></label>
+                            <input type="text" name="lname" id="lname" placeholder="Last name">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="email"></label>
+                            <input type="email" name="email" id="email" placeholder="email or mobile number" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="pwd"></label>
+                            <input type="password" name="pwd" id="pwd" placeholder="new password">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="bdate">Date of Birth:</label>
+                            <input type="date" name="bdate" id="bdate" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label for="Gender">Gender:</label>
+                            <input type="radio" name="Gender" id="Gender" value="Male">Male
+                            <input type="radio" name="Gender" id="Gender"  value="Female">Female
+                            <input type="radio" name="Gender" id="Gender" value="Other">other
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" placeholder="submit">
+                        </td>
+                    </tr>
+                </form>
+        </table>
+    </div>
+</body>
+
+</html>

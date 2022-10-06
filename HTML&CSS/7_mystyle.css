@@ -1,0 +1,10 @@
+div {
+    width: 300px;
+    border: 15px solid lightblue;
+    padding: 25px 50px 75px 100px;
+    margin: 20px;
+    }
+p.three {
+        border-style: dotted;
+        border-width: 2px;
+      }

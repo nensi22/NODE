@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Github sing in form</title>
+        <style>
+        /* body{
+            background-color: lightpink;
+        } */
+        .head{
+            border: 5px solid lightslategray;
+            background-color: lightgray;
+            font-size: 20px;
+            text-align: center;
+            width: 300px;
+            height: 200px;
+            padding: 20px 20px;
+            margin: 5px ;
+        }
+        .main{
+            border: 5px solid lightslategray;
+            background-color: lightgray;
+            font-size: 20px;
+            text-align: center;
+            width: 300px;
+            height:15px;
+            padding: 20px 20px;
+            margin: 10px ;
+        }
+    </style>
+    </head>
+    <body>
+       <center><h1>Sign in to GitHub</h1></center>
+       <center>
+           <form>
+               <div class="head">
+                    <tr>
+                        <td>
+                            <label for="email">username :</label>
+                            <input type="email" name="email" id="email" placeholder="Enter username or emailaddress">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="pwd">password :</label>
+                            <input type="password" name="pwd" id="pwd" placeholder="Enter password">
+                            <p><a href="#fpwd">forgot password?</a></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="submit">sign in</button> 
+                            <!-- <input type="signin" placeholder="Sign in"> -->
+                        </td>
+                    </tr>
+               </div>  
+               
+            </form>
+        </center>
+        <center>
+            <div class="main">
+                <form>
+                    <tr>
+                        <td>
+                            <label for="new">new to github ?<a href="#fpwd"> create an account</a>
+                            </label>
+                        </td>
+                    </tr>
+                </form>
+           </div>
+        </center> 
+    </body>
+</html>
