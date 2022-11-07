@@ -14,5 +14,5 @@
 
 QUERY;-
     alter table student add column Age varchar(50);
-    update student set Age= date_format(from_days(datediff(now(),BOD)),"%y Year %m Month %d Day");
+    update student set Age= date_format(from_days(datediff(now(),BIRTHDATE)),"%y Year %m Month %d Day");
     select * from student;
