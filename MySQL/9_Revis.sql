@@ -47,11 +47,7 @@
 -- 1.7  select avg(price) from products where manufacturers=2;
 -- 1.8  select count(name) from products where price>=180;
 -- 1.9  select name,price from products where price>=180 order by name asc,price desc;
--- 1.10
--- 1.11
--- 1.12
--- 1.13
--- 1.14
+
 -- 1.15  select name ,price from products  order by price limit 1;
 -- 1.16
 -- 1.17  insert into products values(11,'Loudspeaker',70,2);
