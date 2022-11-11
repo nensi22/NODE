@@ -3,9 +3,10 @@
 --     CategoryName VARCHAR(100) ,
 --     CONSTRAINT pk_Category PRIMARY KEY(CategoryId)
 -- );
-insert into Categories values(10001,'Electronics');
-insert into Categories values(10002,'Music');
-insert into Categories values(10002,'Music');
+-- insert into Categories values(10001,'Electronics');
+-- insert into Categories values(10002,'Music');
+-- insert into Categories values(10002,'Music');
+
 
 -- QUERY
 ----------
@@ -18,3 +19,11 @@ insert into Categories values(10002,'Music');
 -- after insertion
     -- source c:\Users\RPCC\Desktop\Node\MySQL\4_Primary.sql
     -- select * from Categories;
+
+
++------------+--------------+
+| CategoryId | CategoryName |
++------------+--------------+
+|      10001 | Electronics  |
+|      10002 | Music        |
++------------+--------------+
