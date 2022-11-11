@@ -12,9 +12,6 @@
 -- INSERT INTO MANUFACTURERS VALUES(6,'winchester');
 
 
-
-
-
 -- CREATE TABLE PRODUCTS(
 --     Code INT ,
 --     Name text ,
@@ -34,4 +31,3 @@
 -- INSERT INTO PRODUCTS VALUES(8,'Printer',270,3);
 -- INSERT INTO PRODUCTS VALUES(9,'Toner cartridge',66,3);
 -- INSERT INTO PRODUCTS VALUES(10,'DVD burner',180,2);
-
