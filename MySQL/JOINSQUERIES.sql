@@ -109,7 +109,7 @@ QUERIES:-
           where pm.productno=sod.productno
             and so.ORDERNO=sod.ORDERNO
                and cm.CLIENTNO=so.CLIENTNO
-                  and sm.name="Ivan";
+                  and cm.name="Ivan";
 
 -- B.Find out the products and their quantities that will have to delivered in the current month.
 -- C.List the productNo and description of constantly sold (i.e..rapidly moving)products.
