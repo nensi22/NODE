@@ -248,6 +248,7 @@ Empty set (0.00 sec)
 +-----------+--------------+----------+---------+------------+
 
 
+
 -- 3.Exercises On Sub_Queries :
 -- A.Find the productno, and description of non-moving products i.e product not being sold.
 

@@ -19,6 +19,7 @@
 -- insert into PRODUCT_MASTER values('p07975','1.44 Drive',5,'piece',10,3,1050,1000);
 -- insert into PRODUCT_MASTER values('p08865','1.22 Drive',5,'piece',2,3,1050,1000);
 
+
 +-----------+---------------+---------------+--------------+-----------+-------------+-----------+-----------+-----------+
 | productno | description   | profitpercent | unitmeasured | qtyonhand | recorderlvl | sellprice | costprice | new_price |
 +-----------+---------------+---------------+--------------+-----------+-------------+-----------+-----------+-----------+

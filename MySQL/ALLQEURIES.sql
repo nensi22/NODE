@@ -118,5 +118,3 @@ DATE:11/10/2022
 *drop table salesman_master;
 *drop table product_master;
 
-
-

@@ -17,6 +17,7 @@
 --     update student set Age= date_format(from_days(datediff(now(),BIRTHDATE)),"%y Year %m Month %d Day");
 --     select * from student;
 
+
 +-------+-------------------+------------+-------------------------+
 | GR_NO | NAME              | BIRTHDATE  | Age                     |
 +-------+-------------------+------------+-------------------------+

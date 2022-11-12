@@ -7,7 +7,6 @@
 -- insert into Categories values(10002,'Music');
 -- insert into Categories values(10002,'Music');
 
-
 -- QUERY
 ----------
 -- befor insertion
