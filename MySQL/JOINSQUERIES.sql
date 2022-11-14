@@ -69,8 +69,8 @@ QUERIES:-
            where pm.productno=sod.productno 
               and so.orderno=sod.orderno 
                  and so.Clientno = cm.Clientno
-                       group by so.ORDERDATE
-                          having  10=(MONTH(so.ORDERDATE));
+                    group by so.ORDERDATE
+                       having  10=(MONTH(so.ORDERDATE));
 
      select * from 1_D;
 +----------+-------+
@@ -178,7 +178,7 @@ Empty set (0.00 sec)
     select cm.name ,pm.productno
        from  client_master cm , SALES_ORDER so, SALES_ORDER_DETAILS sod,product_master pm
            where pm.productno=sod.productno and so.ORDERNO=sod.ORDERNO and cm.CLIENTNO=so.CLIENTNO
-             and pm.description = "Monitors"; 
+             and pm.description = "Trousery"; 
 
 Empty set (0.00 sec)
 
