@@ -146,6 +146,7 @@ REVISE QUERIES :-
         select * from products
            inner join manufacturers
               on products.manufacturers = manufacturers.code;
+
 +------+-----------------+-------+--------------+-------+------+-----------------+
 | Code | NAME            | Price | Manufacturer | Cents | Code | NAME            |
 +------+-----------------+-------+--------------+-------+------+-----------------+
@@ -162,12 +163,16 @@ REVISE QUERIES :-
 |   11 | Loudspeakers    |    63 |            2 |   700 |    2 | Creative Labs   |
 +------+-----------------+-------+--------------+-------+------+-----------------+
 
+    select * from products 
+          where manufacturer in (select code from manufacturers);
+
 
 -- 1.11 Select the product name, price, and manufacturer name of all the products.
         select  products.code,products.name, products.price,manufacturers.name
            from products
               inner join manufacturers
                  ON Products.Manufacturers = Manufacturers.Code;
+
 +------+-----------------+-----------------+-------+
 | code | name            | name            | price |
 +------+-----------------+-----------------+-------+
@@ -184,12 +189,16 @@ REVISE QUERIES :-
 |   11 | Loudspeakers    | Creative Labs   |    63 |
 +------+-----------------+-----------------+-------+
 
+    select * from products 
+          where manufacturers in (select code from manufacturers);
+
 
 -- 1.12 Select the average price of each manufacturer's products, showing only the manufacturer's code.
         select avg(price),b.code
            from products a,manufacturers b
               where b.code=a.manufacturers
                  group by b.code;
+
 +--------------------+------+
 | avg(price)         | code |
 +--------------------+------+
@@ -201,12 +210,18 @@ REVISE QUERIES :-
 |              56.25 |    6 |
 +--------------------+------+
 
+    select avg(price),manufacturer 
+          from products 
+             where manufacturer in (select code from manufacturers) 
+                group by manufacturer;
+
 
 -- 1.13 Select the average price of each manufacturer's products, showing the manufacturer's name.
         select avg(price),b.name
            from products a,manufacturers b
               where b.code=a.manufacturers
                  group by b.name;
+         
 +--------------------+-----------------+
 | avg(price)         | name            |
 +--------------------+-----------------+
@@ -218,6 +233,9 @@ REVISE QUERIES :-
 |              56.25 | winchester      |
 +--------------------+-----------------+
 
+    select avg(price),Manufacturers 
+       from products where manufacturers in (select code from manufacturers) 
+          group by manufacturer;
 
 -- 1.14 Select the names of manufacturer whose products have an average price larger than or equal to $150.
         select avg(price),b.name
@@ -278,19 +296,27 @@ REVISE QUERIES :-
 | Floopy disk |   4.5 |
 +-------------+-------+
 
-        select manufacturers.name,products.name,products.price
-           from manufacturers
-              inner join products
-                 on products.manufacturers=manufacturers.code
-                    where price=(select min(price)from products);
-+------------+-------------+-------+
-| name       | name        | price |
-+------------+-------------+-------+
-| winchester | Floopy disk |   4.5 |
-+------------+-------------+-------+
+        select code,name 
+           from manufacturers 
+              where code in (select manufacturers from  products where  price = (select min(price) from products));
+
++------+------------+
+| code | name       |
++------+------------+
+|    6 | winchester |
++------+------------+
 
 
 -- 1.16 Select the name of each manufacturer along with the name and price of its most expensive product.
+    select name , price 
+       from products 
+          where  price = (select max(price) from products);
++---------------+-------+
+| name          | price |
++---------------+-------+
+| Laser printer | 218.7 |
++---------------+-------+
+
         select  b.name, a.name, a.price
            from products a,manufacturers b
               where b.code=a.manufacturers
@@ -301,6 +327,15 @@ REVISE QUERIES :-
 +-----------------+---------------+-------+
 | Hewlwtt-packard | Laser printer | 218.7 |
 +-----------------+---------------+-------+
+
+    select code,name 
+       from manufacturers 
+          where code in (select manufacturers from  products where  price = (select max(price) from products));
++------+-----------------+
+| code | name            |
++------+-----------------+
+|    3 | Hewlwtt-packard |
++------+-----------------+
 
 
 -- 1.17 Add a new product: Loudspeakers, $70, manufacturer 2.

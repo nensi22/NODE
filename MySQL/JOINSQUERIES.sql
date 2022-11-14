@@ -103,10 +103,13 @@ QUERIES:-
 
 
 -- B.Find out the products and their quantities that will have to delivered in the current month.
+    create or replace view 091122_2_B as
     select pm.productno,pm.Description ,sod.QTYORDERED,sod.QTYDISP,so.DELYDATE 
        from SALES_ORDER_DETAILS sod,product_master pm, SALES_ORDER so,CLIENT_MASTER cm
           where pm.productno=sod.productno and so.ORDERNO=sod.ORDERNO and cm.CLIENTNO=so.CLIENTNO
              and 10=(MONTH(DELYDATE)) ;
+
+    select * from 091122_2_B;
 +-----------+--------------+------------+---------+------------+
 | productno | Description  | QTYORDERED | QTYDISP | DELYDATE   |
 +-----------+--------------+------------+---------+------------+
@@ -115,10 +118,13 @@ QUERIES:-
 | p07885    | CD Drive     |          2 |       1 | 2020-10-02 |
 +-----------+--------------+------------+---------+------------+
 
+    create or replace view 091122_2_B as
     select pm.productno,pm.Description ,sod.QTYORDERED,sod.QTYDISP,so.DELYDATE 
        from SALES_ORDER_DETAILS sod,product_master pm, SALES_ORDER so,CLIENT_MASTER cm
           where pm.productno=sod.productno and so.ORDERNO=sod.ORDERNO and cm.CLIENTNO=so.CLIENTNO
              and SO.ORDERDATE < "2022-10-15" ;
+
+    select * from 091122_2_B;
 +-----------+--------------+------------+---------+------------+
 | productno | Description  | QTYORDERED | QTYDISP | DELYDATE   |
 +-----------+--------------+------------+---------+------------+
@@ -137,10 +143,13 @@ QUERIES:-
 | p07975    | 1.44 Drive   |          1 |       0 | 2022-06-02 |
 +-----------+--------------+------------+---------+------------+
 
-select Pm.productno,Pm.Description ,SOD.QTYORDERED,SOD.QTYDISP,SO.ORDERDATE
-    from  client_master cm , SALES_ORDER so, SALES_ORDER_DETAILS sod,product_master pm
-    where pm.productno=sod.productno and so.ORDERNO=sod.ORDERNO and so.Clientno = cm.Clientno
-    and MONTH(CURDATE())=(MONTH(SO.ORDERDATE)) ;
+    create or replace view 091122_2_B as
+    select Pm.productno,Pm.Description ,SOD.QTYORDERED,SOD.QTYDISP,SO.ORDERDATE
+       from  client_master cm , SALES_ORDER so, SALES_ORDER_DETAILS sod,product_master pm
+          where pm.productno=sod.productno and so.ORDERNO=sod.ORDERNO and so.Clientno = cm.Clientno
+             and MONTH(CURDATE())=(MONTH(SO.ORDERDATE)) ;
+
+    select * from 091122_2_B;
 
 Empty set (0.00 sec)
 
@@ -169,26 +178,33 @@ Empty set (0.00 sec)
              and pm.description = "Monitors"; 
 
     select * from 091122_2_D;
-+------+-----------+
-| name | productno |
-+------+-----------+
-| Ivan | p03453    |
-+------+-----------+
++---------+-----------+
+| name    | productno |
++---------+-----------+
+| Ivan    | p03453    |
+| Pramada | p03453    |
++---------+-----------+
 
+    create or replace view 091122_2_D as
     select cm.name ,pm.productno
        from  client_master cm , SALES_ORDER so, SALES_ORDER_DETAILS sod,product_master pm
            where pm.productno=sod.productno and so.ORDERNO=sod.ORDERNO and cm.CLIENTNO=so.CLIENTNO
              and pm.description = "Trousery"; 
+
+    select * from 091122_2_D;
 
 Empty set (0.00 sec)
 
 
 
 -- E.list the products and orders from customers who have ordered less then 5 units of 'Keyboards'.
+    create or replace view 091122_2_E as
     select pm.Productno ,pm.Description,cm.Clientno,cm.name,sod.QTYORDERED as "Keyboards"
        from  client_master cm , SALES_ORDER so, SALES_ORDER_DETAILS sod,product_master pm
          where pm.productno=sod.productno and so.ORDERNO=sod.ORDERNO and cm.CLIENTNO=so.CLIENTNO
             and  sod.QTYORDERED<5 and Pm.description="Keyboards"; 
+
+    select * from 091122_2_E;
 +-----------+-------------+----------+---------+---------+
 | Productno | Description | Clientno | name    | keybord |
 +-----------+-------------+----------+---------+---------+
@@ -197,10 +213,13 @@ Empty set (0.00 sec)
 
 
 -- F.Find the products and their quantities for the orders placed by 'Ivan Bayross' and 'Mamta Muzumdar'.
+    create or replace view 091122_2_F as
     select Pm.Productno ,Pm.Description,Cm.Clientno,Cm.name,SOD.QTYORDERED 
        from  client_master cm , SALES_ORDER so, SALES_ORDER_DETAILS sod,product_master pm
           where pm.productno=sod.productno and so.orderno=sod.orderno and so.Clientno = cm.Clientno
              and (Cm.name = "Ivan" or Cm.name = "Ravi");
+
+   select * from 091122_2_F;
 +-----------+--------------+----------+------+------------+
 | Productno | Description  | Clientno | name | QTYORDERED |
 +-----------+--------------+----------+------+------------+
@@ -213,10 +232,13 @@ Empty set (0.00 sec)
 | p07975    | 1.44 Drive   | C00005   | Ravi |          5 |
 +-----------+--------------+----------+------+------------+
    
+    create or replace view 091122_2_F as
     select Pm.Productno ,Pm.Description,Cm.Clientno,Cm.name,SOD.QTYORDERED 
        from  client_master cm , SALES_ORDER so, SALES_ORDER_DETAILS sod,product_master pm
           where pm.productno=sod.productno and so.orderno=sod.orderno and so.Clientno = cm.Clientno
              and (Cm.name = "Ivan" or Cm.name = "Mamta");
+
+    select * from 091122_2_F;
 +-----------+--------------+----------+------+------------+
 | Productno | Description  | Clientno | name | QTYORDERED |
 +-----------+--------------+----------+------+------------+
@@ -229,10 +251,13 @@ Empty set (0.00 sec)
 
 
 -- G.Find the products and their quantities for the orders placed by  ClientNo 'C00001' and 'C00002'.
+    create or replace view 091122_2_G as
     select Pm.Productno ,Pm.Description,Cm.Clientno,Cm.name,SOD.QTYORDERED 
        from  client_master cm , SALES_ORDER so, SALES_ORDER_DETAILS sod,product_master pm
           where pm.productno=sod.productno and so.orderno=sod.orderno and so.Clientno = cm.Clientno
              and (Cm.clientno = "C00001" or Cm.clientno = "C00002");
+
+    select * from 091122_2_G;
 +-----------+--------------+----------+---------+------------+
 | Productno | Description  | Clientno | name    | QTYORDERED |
 +-----------+--------------+----------+---------+------------+
@@ -263,16 +288,81 @@ Empty set (0.00 sec)
 
 
 -- B.List the customers name , Address1 ,Address2 , City , PinCode for the client who placed orderno = "019001".
+    create or replace view 091122_3_B as
     select clientno,Name,city,pincode,state
        from client_master
           where clientno not in (select CLIENTNO from SALES_ORDER where orderno = "019001");
 
+    select * from 091122_3_B;
++----------+---------+----------+---------+-------------+
+| clientno | Name    | city     | pincode | state       |
++----------+---------+----------+---------+-------------+
+| C00002   | Vandana | Madras   |  780001 | Tamilnadu   |
+| C00003   | Pramada | Bombay   |  400057 | Maharashtra |
+| C00004   | Basu    | Bombay   |  400056 | Maharashtra |
+| C00005   | Ravi    | Banglore |  100001 |             |
+| C00006   | Rukmini | Bombay   |  400050 | Maharashtra |
++----------+---------+----------+---------+-------------+
+    
+    create or replace view 091122_3_B as
+    select clientno,Name,city,pincode,state
+       from client_master
+          where clientno not in (select CLIENTNO from SALES_ORDER where orderno = "C00001");
+
+    select * from 091122_3_B;         
++----------+---------+--------+---------+-------------+
+| clientno | Name    | city   | pincode | state       |
++----------+---------+--------+---------+-------------+
+| C00006   | Rukmini | Bombay |  400050 | Maharashtra |
++----------+---------+--------+---------+-------------+
+
+
 -- C.List the client names that have placed orders before the month of may'02.
+    create or replace view 091122_3_C as
+    select clientno,Name
+       from client_master
+          where clientno in (select Clientno from SALES_ORDER where ORDERDATE < "2022-10-14");
+
+    select * from 091122_3_C;
++----------+---------+
+| clientno | Name    |
++----------+---------+
+| C00001   | Ivan    |
+| C00002   | Vandana |
+| C00003   | Pramada |
+| C00004   | Basu    |
+| C00005   | Ravi    |
++----------+---------+
 
 
 -- D.List if the product "Lycra Top" has been ordered by any client and print clientno,name to whom it was sold.
+    create or replace view 091122_3_D as
+    select clientno,Name
+       from client_master
+          where clientno in (select clientno from SALES_ORDER where orderno in (select orderno from SALES_ORDER_DETAILS where productno in  (select Productno from product_master where description = "1.44floppies")));
+
+    select * from 091122_3_D;
++----------+---------+
+| clientno | Name    |
++----------+---------+
+| C00001   | Ivan    |
+| C00002   | Vandana |
+| C00003   | Pramada |
+| C00005   | Ravi    |
++----------+---------+
 
 
 -- E.List the names of client who have placed orders wroth Rs. 10000 or more.
+    create or replace view 091122_3_E as
+    select clientno,name
+       from client_master
+          where clientno in (select clientno from SALES_ORDER where orderno in (select orderno from SALES_ORDER_DETAILS where productno in  (select Productno from product_master where Sellprice >= 10000)));
 
-
+    
+    select * from 091122_3_E;
++----------+---------+
+| clientno | name    |
++----------+---------+
+| C00001   | Ivan    |
+| C00003   | Pramada |
++----------+---------+
