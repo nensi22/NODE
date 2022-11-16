@@ -4,13 +4,13 @@ QUERIES:-
 
 -- 1.EXERCISE ON USING HAVING AND GROUP BY CLAUESES:
 -- A. Print the description and total qty for each product.
-    create or replace view 1_A as
+    create or replace view 091122_1_A as
     select pm.productno,pm.description ,sum(sod.QTYORDERED)
        from product_master pm,SALES_ORDER_DETAILS sod
           where pm.productno=sod.productno
              group by pm.productno;
       
-    select * from 1_A;
+    select * from 091122_1_A;
 +-----------+--------------+---------------------+
 | productno | description  | sum(sod.QTYORDERED) |
 +-----------+--------------+---------------------+
@@ -25,13 +25,13 @@ QUERIES:-
 
 
 -- B. Find the value of each product sold.
-    create or replace view 1_B as
+    create or replace view 091122_1_B as
     select  pm.productno,pm.description,sum(sod.qtydisp)
        from sales_order_details sod,product_master pm
           where pm.productno=sod.productno
              group by pm.productno;
 
-    select * from 1_B;
+    select * from 091122_1_B;
 +-----------+--------------+------------------+
 | productno | description  | sum(sod.qtydisp) |
 +-----------+--------------+------------------+
@@ -46,14 +46,14 @@ QUERIES:-
 
 
 -- C. Calculate the average qty sold for each client that has a maximum order value of 15000.00.
-    create or replace view 1_C as
+    create or replace view 091122_1_C as
     select cm.clientno,cm.name,avg(sod.qtydisp),max(sod.QTYORDERED*sod.PRODUCTRATE)
        from SALES_ORDER_DETAILS  sod,CLIENT_MASTER  cm,SALES_ORDER so,product_master pm
           where pm.productno=sod.productno and cm.clientno=so.clientno and so.orderno=sod.orderno
              group by cm.clientno
                 having max(sod.QTYORDERED * sod.productrate)>15000;
 
-    select * from 1_C;
+    select * from 091122_1_C;
 +----------+---------+------------------+-------------------------------------+
 | clientno | name    | avg(sod.qtydisp) | max(sod.QTYORDERED*sod.PRODUCTRATE) |
 +----------+---------+------------------+-------------------------------------+
@@ -63,7 +63,7 @@ QUERIES:-
 
 
 -- D. Find out the total of all the billed orders for the month of june.
-     create or replace view 1_D as
+     create or replace view 091122_1_D as
      select MONTH(so.ORDERDATE) as "octomber",sum(sod.QTYORDERED) as "Total"
         from  client_master cm , SALES_ORDER so, SALES_ORDER_DETAILS sod,product_master pm
            where pm.productno=sod.productno 
@@ -72,7 +72,7 @@ QUERIES:-
                     group by so.ORDERDATE
                        having  10=(MONTH(so.ORDERDATE));
 
-     select * from 1_D;
+     select * from 091122_1_D;
 +----------+-------+
 | octomber | Total |
 +----------+-------+

@@ -146,7 +146,6 @@ REVISE QUERIES :-
         select * from products
            inner join manufacturers
               on products.manufacturers = manufacturers.code;
-
 +------+-----------------+-------+--------------+-------+------+-----------------+
 | Code | NAME            | Price | Manufacturer | Cents | Code | NAME            |
 +------+-----------------+-------+--------------+-------+------+-----------------+
@@ -172,7 +171,6 @@ REVISE QUERIES :-
            from products
               inner join manufacturers
                  ON Products.Manufacturers = Manufacturers.Code;
-
 +------+-----------------+-----------------+-------+
 | code | name            | name            | price |
 +------+-----------------+-----------------+-------+
@@ -198,7 +196,6 @@ REVISE QUERIES :-
            from products a,manufacturers b
               where b.code=a.manufacturers
                  group by b.code;
-
 +--------------------+------+
 | avg(price)         | code |
 +--------------------+------+
@@ -221,7 +218,6 @@ REVISE QUERIES :-
            from products a,manufacturers b
               where b.code=a.manufacturers
                  group by b.name;
-         
 +--------------------+-----------------+
 | avg(price)         | name            |
 +--------------------+-----------------+
