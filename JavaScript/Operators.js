@@ -122,3 +122,4 @@ console.log(typeof function(){});
 
 console.log(typeof Symbol('A'));     
 //                             :-symbol
+

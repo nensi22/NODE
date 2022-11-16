@@ -1,3 +1,5 @@
+// For Loop
+
 // for (var i = 1; i <= 10; i++) {
 //     console.log("Hello ");
 //     if (i < 10) {
@@ -110,3 +112,19 @@
         // a * b = 200
         // a / b = 2
         // a % b = 0
+
+
+// If / Else
+// var a=20;
+// if(a>15)
+// {
+//         console.log("a is greater than 15");
+// }
+// else
+// {
+//         console.log("a is less than 15");
+// }
+
+// output:-
+
+// a is greater than 15
