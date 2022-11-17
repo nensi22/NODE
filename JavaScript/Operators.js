@@ -10,7 +10,7 @@ console.log(10 + + "20");
 //                      :-30
 
 console.log(typeof +"20");   
-//                      :-number
+//                          :-number
 
 console.log(typeof "20");    
 //                      :-string
@@ -57,7 +57,7 @@ console.log(10+20/5*4-1);
 // Strictly Comparision Operator   ===
 //                              [Compar a value and a datatype]
 
-// console.log(10 == 10);   
+console.log(10 == 10);   
 //                   :-true
 
 console.log(10 == "10");     
@@ -68,6 +68,7 @@ console.log(10 === 10);
 
 console.log(10 === "10");    
 //                      :-false
+
 console.log(10 == "ten");    
 //                      :-false
 
@@ -122,4 +123,13 @@ console.log(typeof function(){});
 
 console.log(typeof Symbol('A'));     
 //                             :-symbol
+
+console.log("0"==false);
+//                        :-true
+
+console.log(false == "0");
+//                          :-true
+
+console.log(false ==="0");
+//                          :-false
 
