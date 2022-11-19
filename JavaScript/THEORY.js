@@ -364,4 +364,6 @@
 //     a=20;
 // }
 // console.log(a);
-// let a=10;               [ ReferenceError: Cannot access 'a' before initialization ]
+// let a=10;               [ REFERENCEERROR: Cannot access 'a' before initialization ]
+
+
