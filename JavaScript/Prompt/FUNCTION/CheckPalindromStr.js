@@ -1,4 +1,6 @@
-const prompt = require("prompt-sync")();
+/*  2. Write a JS function that checks whether a passed string is palindrome or not?  */
+
+// const prompt = require("prompt-sync")();
 
 //  Named function  :=
 
@@ -17,13 +19,14 @@ const prompt = require("prompt-sync")();
 // }
 // let str=prompt("ENTER A STRING  : ");
 
-// console.log(check_palindrome(str));
+// console.log( check_palindrome(str));
+// console.log(typeof check_palindrome);
 
 
 
 //  Anonymous function  :=
 
-// let check_palindrome=(str)=>{
+// let check_palindrome = (str) => {
 //     let i;
 //     let len = str.length;
 //     for(i=0; i<len/2; i++){

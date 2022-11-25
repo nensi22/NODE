@@ -3,32 +3,32 @@ Example x = 32243;
 Expected Output : 34223 */
 
 // Named function
-// let rev=0,rem=0;
-// function reversNumber(x){
-//     while(x!=0)
-//     {
-//       rem=x%10;
-//       rev=(rev*10)+rem;
-//       x=Math.floor(x/10);
-//     }
-//     console.log(`Revers a Number is : ${rev}`);
-// }
+let reverse=0,reminder=0;
+function reverseNumber(x){
+    while(x!=0)
+    {
+      reminder=x%10;
+      reverse=(reverse*10)+reminder;
+      x=Math.floor(x/10);
+    }
+    console.log(`Revers a Number is : ${reverse}`);
+}
 
-// reversNumber(32243);
+reverseNumber(32243);
 
 
 // Anonymous function
 
-// let rev=0,rem=0;
-// let reversNumber=(x)=>{
+// let rereversev=0,reminder=0;
+// let reversNumber = (x) => {
 //     while(x!=0)
 //         {
-//           rem=x%10;
-//           rev=(rev*10)+rem;
+//           reminder=x%10;
+//           reverse=(reverse*10)+reminder;
 //           x=Math.floor(x/10);
 //         }
-//     console.log(`Revers a Number is : ${rev}`);
+//     console.log(`Revers a Number is : ${reverse}`);
 // }
-//  reversNumber(32243);
+//  reverseNumber(32243);
 
 

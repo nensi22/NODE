@@ -288,3 +288,28 @@
 // console.log(arr_new.join("-"));                  //          [ 10-11-12-13-14-15-16-17-18-19-20 ]
 
 // console.log(typeof arr_new.join());              //          [ string ]
+
+
+
+// DATE:-24/11/2022
+
+//  copy_array 
+
+// let arr1=[10,20,30];
+// let arr2=[100,200,300];
+// let copy_array;
+
+// copy_array=[...arr1,arr2];    // spread opertor             [ 10, 20, 30, [ 100, 200, 300 ] ]
+                          
+// copy_array=[...arr1,...arr2];                    //          10, 20, 30, 100, 200, 300 ]
+                                
+// copy_array=arr1;                                 //          [ 10, 20, 30 ]
+                
+// copy_array=arr1.slice(0);                        //          [ 10, 20, 30 ]
+                           
+// arr1.push(40);                                   //          [ 10, 20, 30, 40 ]                            
+
+// console.log(arr1);
+                    
+// console.log(typeof copy_array);
+// console.log(arr1==copy_array);
