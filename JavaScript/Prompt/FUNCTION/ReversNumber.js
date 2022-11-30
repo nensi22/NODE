@@ -3,32 +3,42 @@ Example x = 32243;
 Expected Output : 34223 */
 
 // Named function
-let reverse=0,reminder=0;
-function reverseNumber(x){
-    while(x!=0)
-    {
-      reminder=x%10;
-      reverse=(reverse*10)+reminder;
-      x=Math.floor(x/10);
-    }
-    console.log(`Revers a Number is : ${reverse}`);
-}
+// function reverseNumber(x){
+//     let reverse=0,reminder=0;
+//     while(x!=0)
+//     {
+//       reminder=x%10;
+//       reverse=(reverse*10)+reminder;
+//       x=Math.floor(x/10);
+//     }
+//     console.log(`Revers a Number is : ${reverse}`);
+// }
+// reverseNumber(32243);
 
-reverseNumber(32243);
+// function reverseNumber(x)
+// {
+// 	x = x + "";
+// 	return x.split("").reverse().join("");
+// }
+// console.log(Number(reverseNumber(32243)));
 
 
 // Anonymous function
 
-// let rereversev=0,reminder=0;
-// let reversNumber = (x) => {
+// let reverseNumber = (x) => {
+//     let reverse=0,reminder=0;
 //     while(x!=0)
-//         {
-//           reminder=x%10;
-//           reverse=(reverse*10)+reminder;
-//           x=Math.floor(x/10);
-//         }
+//     {
+//       reminder=x%10;
+//       reverse=(reverse*10)+reminder;
+//       x=Math.floor(x/10);
+//     }
 //     console.log(`Revers a Number is : ${reverse}`);
 // }
-//  reverseNumber(32243);
+// reverseNumber(32243);
 
-
+// let reverseNumber = (x) => {
+// 	x = x + "";
+// 	return x.split("").reverse().join("");
+// }
+// console.log(Number(reverseNumber(32243)));
