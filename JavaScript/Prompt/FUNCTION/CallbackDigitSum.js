@@ -1,3 +1,6 @@
+//  calback
+
+
 let sum = (number1) => {
     let sum1 = 0;
     console.log(number1);
@@ -18,4 +21,5 @@ let total = (number, callback) => {
 
 let number = 9898989898;
 console.log(total(number, sum));
+
 
