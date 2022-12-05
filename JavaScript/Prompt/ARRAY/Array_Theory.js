@@ -312,4 +312,6 @@
 // console.log(arr1);
                     
 // console.log(typeof copy_array);
-// console.log(arr1==copy_array);   
+// console.log(arr1==copy_array); 
+
+

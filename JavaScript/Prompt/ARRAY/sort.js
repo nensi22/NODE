@@ -23,7 +23,7 @@
                         console.log(months.sort());                     //      [ 'Dec', 'Feb', 'Jan', 'March' ]
                         
                         let array = [34,67,90,76];
-                        console.log(array.sort());                      //      [ 34, 67, 76, 90 ]s
+                        console.log(array.sort());                      //      [ 34, 67, 76, 90 ]
           
 
 
