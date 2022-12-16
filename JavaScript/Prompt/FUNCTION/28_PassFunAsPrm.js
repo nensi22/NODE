@@ -1,0 +1,1 @@
+/* 28. Write a JS program to pass a 'JS function' as parameter.              */
