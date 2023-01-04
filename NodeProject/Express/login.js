@@ -33,5 +33,4 @@ login.post("/postlogin",(req,res)=>{
 });
 
 
-
 module.exports=login;

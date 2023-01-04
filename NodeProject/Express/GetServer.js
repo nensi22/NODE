@@ -14,7 +14,6 @@ app.get("/", (req, res) => {
 // http://localhost:1001/login?uname=skill&upwd=qode
 // app.get("/login", (req, res) => {
 //     let query = req.query;
-//     // console.log(req.query);
 //     console.log(query);
 //     console.log(query.uname);
 //     console.log(query.upwd);
