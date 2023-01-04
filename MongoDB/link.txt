@@ -1,6 +1,0 @@
-mongodb+srv://admin:<password>@cluster0.p8da507.mongodb.net/test
-
-
-mongosh "mongodb+srv://cluster0.p8da507.mongodb.net/myFirstDatabase" --apiVersion 1 --username admin
-
-acid
