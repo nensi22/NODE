@@ -18,4 +18,10 @@
 // });
 
 
-
+// app.get("/login/:id/:upwd", (req, res) => {
+//     let data = req.params
+//     console.log(data);
+//     console.log(data.id);
+//     console.log(data.upwd);
+//     res.json({ "username": "id", "password": "upwd" });
+// });

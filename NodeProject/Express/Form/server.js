@@ -12,7 +12,7 @@ app.get("/login",(req,res)=>{
 app.get("/login",(req,res)=>{
     const request = req.body;
     console.log("Data get",request);
-})
+});
 
 app.post("/login",(req,res)=>{
     res.json({msg:"Login post"});
