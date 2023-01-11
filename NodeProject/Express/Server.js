@@ -1,6 +1,6 @@
 const express=require("express");
 const app=express();
-const PORT=4009;
+const PORT=1001;
 
 app.get("/",(req,res)=>{
     res.json({msg:"Hello"});
