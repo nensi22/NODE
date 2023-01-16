@@ -23,8 +23,7 @@ deleteData.delete("/",(req,res)=>{
                                                     res.send({delete :"success"});
                                                 }
                                             } 
-                                        );
-            
+                                        );            
         }
     })
 });
