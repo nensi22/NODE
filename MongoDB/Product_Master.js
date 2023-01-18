@@ -12,7 +12,7 @@ db.PRODUCT_MASTER.insertMany([
 
 ])
 
-db.PRODUCT_MASTER.find().pretty();
+db.PRODUCT_MASTER.find();
 
 
 /* [
