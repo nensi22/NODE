@@ -7,7 +7,6 @@ const data = {
             password: bcrypt.hashSync("hr1@skillqode.in", 8),
             isadmin: true,
             email: "hr@skillqode.in"
-
         },
         {
             name: "skillqode1",
@@ -15,7 +14,6 @@ const data = {
             isadmin: true,
             email: "hr1@skillqode.in",
         }
-
     ],
 };
 
