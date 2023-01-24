@@ -1,25 +1,24 @@
 const express = require('express');
+const app = express();
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const cors = require("cors");
-const app = express();
+// const authJwt = r    equire("./helpers/jwt")
 require("dotenv/config");
 const PORT = process.env.PORT
 
-//cors
 app.use(cors());
 app.options("*", cors());
 
-//strictQuery
 mongoose.pluralize(null);
 mongoose.set("strictQuery", true);
-app.use(morgan('tiny'))
+app.use(morgan('tiny'));
 
-//json
+// app.use(authJwt);
+
 app.use(express.json());
 app.use(express.urlencoded());
 
-//Default
 app.get('/', (req, res) => {
     res.json({ 'msg': "default" });
 });
@@ -43,7 +42,21 @@ app.use('/postusers', require('./routes/users'));
 app.use('/postcategory', require('./routes/categories'));
 app.use('/postproducts', require('./routes/products'));
 app.use('/postorders', require('./routes/orders'));
-app.use('/postorderitems', require('./routes/orderitems'));
+app.use('/postorderitems', require('./routes/orderItems'));
+
+app.use('/updateusers', require('./routes/users'));
+app.use('/updatecategory', require('./routes/categories'));
+app.use('/updateproducts', require('./routes/products'));
+app.use('/updateorders', require('./routes/orders'));
+app.use('/updateorderitems', require('./routes/orderItems'));
+
+app.use('/deleteusers', require('./routes/users'));
+app.use('/deletecategory', require('./routes/categories'));
+app.use('/deleteproducts', require('./routes/products'));
+app.use('/deleteorders', require('./routes/orders'));
+app.use('/deleteorderitems', require('./routes/orderItems'));
+
+app.use('/user', require('./routes/users'));
 
 app.listen(PORT, () => {
     console.log(`Server listening Port : ${PORT}`);

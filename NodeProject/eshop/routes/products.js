@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const Category = require("../models/category")
 const router = express.Router();
 const Products = require('../models/product');
 
@@ -7,24 +8,81 @@ router.use(express.json());
 router.use(express.urlencoded());
 
 
-router.get('/', (req, res) => {
-    Products.find({}, (err, result) => {
-        if (err) throw err;
-        else {
-            res.send(result);
-        }
+router.get("/:id",async(req,res)=>{
+    const product = await Products.findById(req.params.id);
+    if (!product) {
+        res.status(500).json({ massage: "The Product with the give Id was not found....!" });
+    }
+    res.status(200).send(product);
+})
+
+router.post("/",async(req,res)=>{
+    const CategoryCheck = await Category.findById(req.body.category);
+    if(!CategoryCheck) return res.status(400).send("Invalid category");
+
+    let product = new Products({
+      
+        name: req.body.name,
+        description: req.body.description,
+        richdescription: req.body.richdescription,
+        image: "path",
+        images: req.body.images,
+        brands: req.body.brands,
+        price: req.body.price,
+        category: req.body.category,
+        countInStock: req.body.countInStock,
+        rating: req.body.rating,
+        isFeatured: req.body.isFeatured,
     });
+
+   product = await product.save();
+   if(!product) return res.status(500).send("the product can not be created");
+   res.send(product);
 });
 
-router.post('/', (req, res) => {
-    Products.insertMany(req.body, (err, result) => {
-        if (err) throw err;
-        else {
-            res.json({ "msg": "insert Success...!" });
-        }
-    });
-
+router.put('/:id', async (req, res) => {
+    const product = await Products.findByIdAndUpdate(req.params.id,
+        {
+            name: req.body.name,
+            description: req.body.description,
+            richdescription: req.body.richdescription,
+            image: "ImagePath",
+            images: "ImagesPath",
+            brand: req.body.brand,
+            price: req.body.price,
+            category: req.body.category,
+            countInStock: req.body.countInStock,
+            rating: req.body.rating,
+            isFeatured: req.body.isFeatured,
+            dataCreated: req.body.dataCreated,
+        }, { new: true }
+    );
+    if (!product) return res.status(500).send("The Product cannot be Update.....!");
+    res.send(product);
 });
+
+router.delete("/:id",async(req,res)=>{
+    Products.findByIdAndRemove(req.params.id)
+        .then((product) => {
+            if (product) {
+                return res.status(200).json({ success: true, massage: "The Product is deleted....!" })
+            }
+            else {
+                return res.status(404).json({ success: false, massage: "The Product is not found....!" })
+            }
+        })
+        .catch((err) => {
+            return res.status(500).json({ success: false, error: err });
+        })
+});
+
+
+// router.delete('/:id', async (req, res) => {
+//     const product = await Products.findByIdAndRemove(req.params.id);
+//     if (!product) return res.status(500).send("The Products cannot be deleted.....!");
+//     res.send({ massage: "The Product is deleted" });
+// });
+
 
 
 module.exports = router;

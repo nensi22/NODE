@@ -1,11 +1,18 @@
 const mongoose = require('mongoose');
 
 const orderItemSchema = new mongoose.Schema({
-    id: { type: String, required: true },
-    product: { type: mongoose.Schema.Types.ObjectId, required: true },
+    product: { type: mongoose.Schema.Types.ObjectId,ref:"Products", required: true },
     quantity: { type: Number, required: true }
 });
 
-const Orderitem = mongoose.model('Orderitems', orderItemSchema);
+orderItemSchema.virtual("id").get(function(){
+    return this._id.toHexString();
+});
 
-module.exports = Orderitem;
+orderItemSchema.set("toJSON",{
+    virtuals:true,
+});
+
+const Orderitems = mongoose.model('Orderitems', orderItemSchema);
+
+module.exports = Orderitems;
