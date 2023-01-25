@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const router = express.Router();
-const Users = require('../models/user');
+const User = require('../models/user');
 const jwt = require("jsonwebtoken");
 const bcrypt = require('bcryptjs');
 
@@ -10,7 +10,7 @@ router.use(express.urlencoded());
 
 
 router.get('/:id', async(req, res) => {
-    const user = await Users.findById(req.params.id);
+    const user = await User.findById(req.params.id);
     if (!user) {
         res.status(500).json({ massage: "The User with the give Id was not found....!" });
     }
@@ -18,7 +18,7 @@ router.get('/:id', async(req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    let user = new Users({
+    let user = new User({
         name: req.body.name,
         email: req.body.email,
         passwordHash: bcrypt.hashSync(req.body.passwordHash, 10),
@@ -36,7 +36,7 @@ router.post('/', async (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
-    const user = await Users.findOne({ email: req.body.email });
+    const user = await User.findOne({ email: req.body.email });
     const secret = process.env.SECRET;
     if (!user) {
         return res.status(400).send("The user not found");
@@ -57,7 +57,7 @@ router.post("/login", async (req, res) => {
 });
 
 router.put('/:id', async (req, res) => {
-    const user = await Users.findByIdAndUpdate(req.params.id,
+    const user = await User.findByIdAndUpdate(req.params.id,
         {
             name: req.body.name,
             email: req.body.email,
@@ -76,7 +76,7 @@ router.put('/:id', async (req, res) => {
 });
 
 router.delete("/:id",async(req,res)=>{
-    Users.findByIdAndRemove(req.params.id)
+    User.findByIdAndRemove(req.params.id)
         .then((user) => {
             if (user) {
                 return res.status(200).json({ success: true, massage: "The User is deleted....!" })
@@ -91,7 +91,7 @@ router.delete("/:id",async(req,res)=>{
 });
 
 // router.delete('/:id', async (req, res) => {
-//     const user = await Users.findByIdAndRemove(req.params.id);
+//     const user = await User.findByIdAndRemove(req.params.id);
 //     if (!user) return res.status(500).send("The Users cannot be deleted.....!");
 //     res.send({ massage: "The User is deleted" });
 // });

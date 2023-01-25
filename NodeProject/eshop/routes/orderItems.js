@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const Products = require('../models/product');
 const router = express.Router();
+const Product = require('../models/product');
 const Orderitems = require('../models/orderItem');
 
 router.use(express.json());
@@ -16,7 +16,7 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post("/",async(req,res) => {
-    const product = await Products.findById(req.body.product);
+    const product = await Product.findById(req.body.product);
     if (!product) return res.status(400).send("Invalide Product...!");
     let orderitems = new Orderitems({
         product: req.body.product,

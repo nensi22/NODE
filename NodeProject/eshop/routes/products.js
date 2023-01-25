@@ -2,14 +2,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 const Category = require("../models/category")
 const router = express.Router();
-const Products = require('../models/product');
+const Product = require('../models/product');
 
 router.use(express.json());
 router.use(express.urlencoded());
 
 
 router.get("/:id",async(req,res)=>{
-    const product = await Products.findById(req.params.id);
+    const product = await Product.findById(req.params.id);
     if (!product) {
         res.status(500).json({ massage: "The Product with the give Id was not found....!" });
     }
@@ -20,7 +20,7 @@ router.post("/",async(req,res)=>{
     const CategoryCheck = await Category.findById(req.body.category);
     if(!CategoryCheck) return res.status(400).send("Invalid category");
 
-    let product = new Products({
+    let product = new Product({
       
         name: req.body.name,
         description: req.body.description,
@@ -41,7 +41,7 @@ router.post("/",async(req,res)=>{
 });
 
 router.put('/:id', async (req, res) => {
-    const product = await Products.findByIdAndUpdate(req.params.id,
+    const product = await Product.findByIdAndUpdate(req.params.id,
         {
             name: req.body.name,
             description: req.body.description,
@@ -62,7 +62,7 @@ router.put('/:id', async (req, res) => {
 });
 
 router.delete("/:id",async(req,res)=>{
-    Products.findByIdAndRemove(req.params.id)
+    Product.findByIdAndRemove(req.params.id)
         .then((product) => {
             if (product) {
                 return res.status(200).json({ success: true, massage: "The Product is deleted....!" })
@@ -78,7 +78,7 @@ router.delete("/:id",async(req,res)=>{
 
 
 // router.delete('/:id', async (req, res) => {
-//     const product = await Products.findByIdAndRemove(req.params.id);
+//     const product = await Product.findByIdAndRemove(req.params.id);
 //     if (!product) return res.status(500).send("The Products cannot be deleted.....!");
 //     res.send({ massage: "The Product is deleted" });
 // });

@@ -15,7 +15,7 @@ router.get("/:id",async(req,res)=>{
 });
 
 router.post("/",async(req,res)=>{
-    const category = new Category({
+    let category = new Category({
         name: req.body.name ,
         color: req.body.color,
         icon: req.body.icon,
