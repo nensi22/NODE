@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const cors = require("cors");
-// const authJwt = r    equire("./helpers/jwt")
+// const authJwt = require("./helpers/jwt")
 require("dotenv/config");
 const PORT = process.env.PORT
 
@@ -15,6 +15,13 @@ mongoose.set("strictQuery", true);
 app.use(morgan('tiny'));
 
 // app.use(authJwt);
+// app.use(
+//         jwt({
+//             secret:"shhhhhhhhhh-secret",
+//             algorithms:["HS256"],
+//         }).unless({ path: ["/token"]})
+//     );
+
 
 app.use(express.json());
 app.use(express.urlencoded());

@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const Category = require('../models/category');
 const router = express.Router();
+const Category = require('../models/category');
 
 router.use(express.json());
 router.use(express.urlencoded());

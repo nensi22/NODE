@@ -8,7 +8,6 @@ const bcrypt = require('bcryptjs');
 router.use(express.json());
 router.use(express.urlencoded());
 
-
 router.get('/:id', async(req, res) => {
     const user = await User.findById(req.params.id);
     if (!user) {

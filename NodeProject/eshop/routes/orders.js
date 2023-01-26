@@ -8,12 +8,38 @@ const Orderitems  = require("../models/orderItem");
 router.use(express.json());
 router.use(express.urlencoded());
 
+// router.get('/:id', async (req, res) => {
+//     const order = await Orders.findById(req.params.id);
+//     if (!order) {
+//         res.status(500).json({ massage: "The Order with the give Id was not found....!" });
+//     }
+//     res.status(200).send(order);
+// });
+
+// router.get('/', async (req, res) => {
+//     const orderlist = await Orders.find()
+//         .populate("user","name")
+//         .sort({dateOredered : -1});
+//     if (!orderlist) {
+//         res.status(500).json({ success: false });
+//     }
+//     res.status(200).send(orderlist);
+// });
+
 router.get('/:id', async (req, res) => {
-    const order = await Orders.findById(req.params.id);
-    if (!order) {
-        res.status(500).json({ massage: "The Order with the give Id was not found....!" });
+    const orderlist = await Orders.findById(req.params.id)
+        .populate("user","name")
+        .populate({
+            path:"orderitems",
+            populate:{
+                path:"product",
+                populate:"category",
+            },
+        });
+    if (!orderlist) {
+        res.status(500).json({ success: false });
     }
-    res.status(200).send(order);
+    res.status(200).send(orderlist);
 });
 
 router.post("/", async (req, res) => {
