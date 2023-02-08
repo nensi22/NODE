@@ -21,10 +21,10 @@
                         findLast(function (element, index, array) { / … / })
                         findLast(function (element, index, array) { / … / }, thisArg)
 
-                Example :=
+                        Example :=
                         let array1 = [5, 12, 50, 130, 44];
                         let found = array1.findLast((element) => element > 45);
                         console.log(found);                                             //  130 
-
-
+                        
+                        
 */

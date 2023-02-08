@@ -3,9 +3,9 @@ const app = express();
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const cors = require("cors");
-// const authJwt = require("./helpers/jwt")
 require("dotenv/config");
-const PORT = process.env.PORT
+const authJwt = require("./helpers/jwt");
+const errorHandler = require("./helpers/error-handler");
 
 app.use(cors());
 app.options("*", cors());
@@ -14,14 +14,8 @@ mongoose.pluralize(null);
 mongoose.set("strictQuery", true);
 app.use(morgan('tiny'));
 
-// app.use(authJwt);
-// app.use(
-//         jwt({
-//             secret:"shhhhhhhhhh-secret",
-//             algorithms:["HS256"],
-//         }).unless({ path: ["/token"]})
-//     );
-
+app.use(authJwt());
+app.use(errorHandler);
 
 app.use(express.json());
 app.use(express.urlencoded());
@@ -65,6 +59,7 @@ app.use('/deleteorderitems', require('./routes/orderItems'));
 
 app.use('/user', require('./routes/users'));
 
+const PORT = process.env.PORT
 app.listen(PORT, () => {
     console.log(`Server listening Port : ${PORT}`);
 })
