@@ -15,12 +15,12 @@ const connection = mysql.createConnection({
     host:"localhost", 
     user:"root",
     password:"admin@123",
-    database:"skilldemo" ,
+    database:"nensi" ,
 
-    host :"localhost",
-    user:"root",
-    password:"admin@123",
-    database:"skilldemo",
+    // host :"localhost",
+    // user:"root",
+    // password:"admin@123",
+    // database:"nensi",
     port:3309,
 
 });
@@ -33,6 +33,8 @@ connection.connect(function(error){
         console.log("Database connected successfully...");
     }
 });
+
+app.use("/user",require("./routes/users"));
 
 const PORT = process.env.PORT;
 app.listen(PORT , ()=>{
