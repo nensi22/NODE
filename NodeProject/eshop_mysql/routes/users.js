@@ -136,7 +136,7 @@ router.put("/:id", (req, res) => {
 
 router.delete("/:id", (req, res) => {
     let id = req.params.id
-
+    
     connection.query("delete from users where id = " + id, (err, result) => {
         if (err) {
             res.json({ error: err })

@@ -29,7 +29,7 @@ router.get("/", (req, res) => {
             res.json({ Data: rows });
         }
     });
-});
+});``
 
 //getdata by id
 router.get("/:id", (req, res) => {
