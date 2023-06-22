@@ -9,7 +9,7 @@ const authJwt = () => {
     })
         .unless({ path: ["/user/login"] });
 
-}
+}   
 
 module.exports = authJwt;
 
